@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>PrideGo</title>
+		<style type="text/css">
+			#banner {
+				height: 75px;
+				background-image: url(progress_flag.svg), url(rainbow_flag.svg);
+				background-position: left top, right top;
+				background-repeat: no-repeat, repeat-x;
+				margin: 0px;
+				padding: 0px;
+			}
+			body {
+				margin: 0px;
+				padding: 0px;
+			}
+			p {
+				font-size: large;
+				font-family: sans-serif;
+			}
+			#center {
+				margin-left: auto;
+				margin-right: auto;
+				padding-left: 1em;
+				padding-right: 1em;
+				margin-top: 0.5in;
+				max-width: 7.5in;
+			}
+			a {
+				color: #2c8bcf;
+			}
+			#tabs {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+			}
+			button{
+				padding: 0px;
+				font-size: 1.5em;
+				border: none;
+				font-family: sans-serif;
+				background-color: white;
+				border-bottom:0.15em;
+			}
+			.active {
+				width: 100%
+			}
+			.inactive {
+				width: 0%;
+			}
+			@keyframes show_bar {
+				from {width: 0%;}
+				to {width: 100%;}
+			}
+			button:hover div.inactive {
+				animation-name: show_bar;
+				animation-duration: 0.25s;
+				background-repeat: no-repeat;
+				animation-fill-mode: forwards;
+			}
+			button div {
+				height: 0.12em;
+				width: 0%;
+				background-color: black;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			iframe {
+				margin-top: 1.5em;
+			}
+			/*@media (prefers-color-scheme: dark) {
+				body {
+					background-color: #272822;
+				}
+				button {
+					background-color: #272822;
+				}
+				p {
+					color: white;
+				}
+				button {
+					color: white;
+				}
+				button div {
+					background-color: white;
+				}
+				a {
+					color: #76bbec;
+				}
+			}*/
+		</style>
+		<script src="https://kit.fontawesome.com/ff3c6d1765.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div id="banner"></div>
+		<div id="center">
+			<div id="tabs">
+			<button onclick="show_content('about')">
+				<i class="fas fa-star"></i> About
+				<div id="about_bar" class="active"></div>
+			</button>	
+			<button onclick="show_content('events')">
+				<i class="fas fa-calendar-alt"></i> Events
+				<div id="events_bar" class="inactive"></div>
+			</button>
+			<button onclick="show_content('contribute')">
+				<i class="fas fa-hand-holding-usd"></i> Contribute
+				<div id="contribute_bar" class="inactive"></div>
+			</button>
+			<button onclick="show_content('apply')">
+				<i class="fas fa-clipboard-list"></i> Apply
+				<div id="apply_bar" class="inactive"></div>
+			</button>
+			<button onclick="show_content('contact')">
+				<i class="fas fa-envelope"></i> Contact
+				<div id="contact_bar" class="inactive"></div>
+			</button>
+			</div>
+
+			<div id="main" style="display: none">
+			<p>
+				PrideGo is a scholarship that sends LGBT+ youth and young adults to the anual <a href="https://www.gocongress.org/">US Go Congress</a> (wait what’s <a href="https://en.wikipedia.org/wiki/Go_(game)">Go</a>?). The US Go Congress is a major even in the North American Go scene, lasting over a week during the summer, having a multitude of events to play in, and tons of participants every year. If you self-identify as a member of the LGBT+ community, are between the ages of 13 and 22, and living in the USA this can be a fantastic opportunity to go to the Congress. If you’re interested, fill out this <a href="https://docs.google.com/forms/d/e/1FAIpQLScQcM49xnAVi-Kpxtm4H-xsO87Fl6HLWEWMmk4yXAG7Fv7OPA/viewform?embedded=true">form</a> and we'll be in touch with the chosen applicants.
+			</p>
+			<p>
+			We also hold our own events you should check out. They're open to anyone and can be found on our events calendar.
+			</p>
+			</div>
+
+			<div id="events" style="display: none">
+			<p>
+				There are no scheduled events yet. Our first event will be a tournament taking place October or November of this year. Details of the tournament will be posted here, the <a href="https://www.usgo.org/news/">AGA e-Journal</a>, and the <a href="https://discord.com/invite/jQ3rKxP2R9">official AGA discord server</a> once they are finalized. Our events are open to anyone and the proceeds from the events help to fund the scholarship.
+			</p>
+			</div>
+
+			<div id="about" style="display: block">
+				<p>
+					The PrideGo team believes that Go/Baduk/Weiqi should be accessible to everybody, regardless of who they are. With greater LGBT+ representation, the Go community can be made more vibrant and inclusive than ever before. The PrideGo team is dedicated to bringing these communities together, and currently focuses on facilitating LGBT+ involvement in Go by way of scholarships for the annual <a href=https://www.gocongress.org>US Go Congress</a>.
+				</p>
+
+				<p>
+					The PrideGo initiative began with the First Annual Pride Month Rengo tournament that was organized over the span of five days leading up to June 27th, the last Sunday of Pride Month in 2021. The event was hosted on KGS, and live commentary was <a href=https://www.twitch.tv/videos/1105579938>broadcast on Twitch</a>. With the help of some generous donors and volunteers, we raised <a href=https://dashboard.tiltify.com/gooplet/campaigns/gogogooplet/overview>over a thousand dollars</a> for <a href=https://qords.org>QORDS</a>, a summer music camp for LGBT+ youth in the American south.
+				</p>
+
+				<p>
+					At the time, no queer-oriented Go-related funds existed. At an <a href=http://agfgo.org/pages/home.php>AGF</a> meeting during the 2021 e-Go Congress, Eva-Dee from the AGA Committee of Diversity and Inclusion proposed the establishment of an LGBT+ youth scholarship to send youth and young adults in LGBT+ communities to Go Congress. The proposal was enthusiastically approved, and we immediately began plans for fundraising. Future proceeds will benefit the AGF to fund this scholarship.
+				</p>
+			</div>
+
+			<div id="contribute" style="display: none">
+			<div style="display: flex">
+				<p><img src="AGF-logo.png" style="width: 0.8in; height: 0.8in; margin-right: 1em"></p>
+				<p>
+					The most direct way to contribute is to include <a href="http://agfgo.org/downloads/AGFDonorForm.pdf">this form</a> with a check addressed to the American Go Foundation and specify that it is for the PrideGo scholarship fund. You can also donate via the PayPal button below, or by participating in the <a href="#events" onclick="show_content('events')">events we host throughout the year</a>.
+				</p>
+			</div>
+			<center>
+			<form action="https://www.paypal.com/donate" method="post" target="_top">
+			<input type="hidden" name="hosted_button_id" value="ADSKNS6PSLTTA" />
+			<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+			</form>
+			</center>
+			</div>
+
+			<div id="contact" style="display: none">
+			<p>
+				Have any questions or comments about PrideGo? Contact Eva-Dee at <a href="mailto: evadee.beech@usgo.org">evadee.beech@usgo.org</a>.
+			</p>
+			</div>
+
+			<div id="apply" style="display: none">
+					<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScQcM49xnAVi-Kpxtm4H-xsO87Fl6HLWEWMmk4yXAG7Fv7OPA/viewform?embedded=true" width="640" height="3400" frameborder="0" marginheight="0" marginwidth="0"></iframe>			
+			</div>
+		</div>
+		<script>
+			var state = "about";
+			var url = window.location.href;
+			var pound_location = url.search("#")
+			if (pound_location != -1) {
+				show_content(url.slice(pound_location+1));
+			}
+			function show_content(id) {
+				window.location.href = "#"+id;
+				document.getElementById(state).style.display = "none";
+				document.getElementById(state + "_bar").className = "inactive";
+				document.getElementById(id).style.display = "block";
+				document.getElementById(id + "_bar").className = "active";
+				state = id;
+			}
+		</script>
+	</body>
+</html>
