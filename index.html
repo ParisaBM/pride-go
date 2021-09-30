@@ -96,23 +96,23 @@
 		<div id="banner"></div>
 		<div id="center">
 			<div id="tabs">
-			<button onclick="show_content('about')">
+			<button onclick="switch_tab('about')">
 				<i class="fas fa-star"></i> About
 				<div id="about_bar" class="active"></div>
 			</button>	
-			<button onclick="show_content('events')">
+			<button onclick="switch_tab('events')">
 				<i class="fas fa-calendar-alt"></i> Events
 				<div id="events_bar" class="inactive"></div>
 			</button>
-			<button onclick="show_content('contribute')">
+			<button onclick="switch_tab('contribute')">
 				<i class="fas fa-hand-holding-usd"></i> Contribute
 				<div id="contribute_bar" class="inactive"></div>
 			</button>
-			<button onclick="show_content('apply')">
+			<button onclick="switch_tab('apply')">
 				<i class="fas fa-clipboard-list"></i> Apply
 				<div id="apply_bar" class="inactive"></div>
 			</button>
-			<button onclick="show_content('contact')">
+			<button onclick="switch_tab('contact')">
 				<i class="fas fa-envelope"></i> Contact
 				<div id="contact_bar" class="inactive"></div>
 			</button>
@@ -166,7 +166,7 @@
 			<div style="display: flex">
 				<p><img src="AGF-logo.png" style="width: 0.8in; height: 0.8in; margin-right: 1em"></p>
 				<p>
-					The most direct way to contribute is to include <a href="http://agfgo.org/downloads/AGFDonorForm.pdf">this form</a> with a check addressed to the American Go Foundation and specify that it is for the PrideGo scholarship fund. You can also donate via the PayPal button below, or by participating in the <a href="#events" onclick="show_content('events')">events we host throughout the year</a>.
+					The most direct way to contribute is to include <a href="http://agfgo.org/downloads/AGFDonorForm.pdf">this form</a> with a check addressed to the American Go Foundation and specify that it is for the PrideGo scholarship fund. You can also donate via the PayPal button below, or by participating in the <a href="#events" onclick="switch_tab('events')">events we host throughout the year</a>.
 				</p>
 			</div>
 			<center>
@@ -190,13 +190,22 @@
 		</div>
 		<script>
 			var state = "about";
-			var url = window.location.href;
-			var pound_location = url.search("#")
-			if (pound_location != -1) {
-				show_content(url.slice(pound_location+1));
+			check_hash();
+			function switch_tab(id) {
+				window.location.href = "#"+id;
+			}
+			window.onhashchange = function() {
+				check_hash();
+			}
+			function check_hash() {
+				console.log("hello");
+				var url = window.location.href;
+				var pound_location = url.search("#")
+				if (pound_location != -1) {
+					show_content(url.slice(pound_location+1));
+				}
 			}
 			function show_content(id) {
-				window.location.href = "#"+id;
 				document.getElementById(state).style.display = "none";
 				document.getElementById(state + "_bar").className = "inactive";
 				document.getElementById(id).style.display = "block";
