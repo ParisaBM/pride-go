@@ -204,6 +204,9 @@
 				if (pound_location != -1) {
 					show_content(url.slice(pound_location+1));
 				}
+				else {
+					window.location.href = "#about";
+				}
 			}
 			function show_content(id) {
 				document.getElementById(state).style.display = "none";
