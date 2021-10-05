@@ -35,13 +35,15 @@
 				flex-wrap: wrap;
 				justify-content: space-between;
 			}
-			button{
+			#tabs a {
 				padding: 0px;
 				font-size: 1.5em;
 				border: none;
 				font-family: sans-serif;
 				background-color: white;
 				border-bottom:0.15em;
+				color: inherit;
+				text-decoration: inherit;
 			}
 			.active {
 				width: 100%
@@ -53,13 +55,13 @@
 				from {width: 0%;}
 				to {width: 100%;}
 			}
-			button:hover div.inactive {
+			a:hover div.inactive {
 				animation-name: show_bar;
 				animation-duration: 0.25s;
 				background-repeat: no-repeat;
 				animation-fill-mode: forwards;
 			}
-			button div {
+			a div {
 				height: 0.12em;
 				width: 0%;
 				background-color: black;
@@ -96,26 +98,26 @@
 		<div id="banner"></div>
 		<div id="center">
 			<div id="tabs">
-			<button onclick="switch_tab('about')">
-				<i class="fas fa-star"></i> About
-				<div id="about_bar" class="active"></div>
-			</button>	
-			<button onclick="switch_tab('events')">
-				<i class="fas fa-calendar-alt"></i> Events
-				<div id="events_bar" class="inactive"></div>
-			</button>
-			<button onclick="switch_tab('contribute')">
-				<i class="fas fa-hand-holding-usd"></i> Contribute
-				<div id="contribute_bar" class="inactive"></div>
-			</button>
-			<button onclick="switch_tab('apply')">
-				<i class="fas fa-clipboard-list"></i> Apply
-				<div id="apply_bar" class="inactive"></div>
-			</button>
-			<button onclick="switch_tab('contact')">
-				<i class="fas fa-envelope"></i> Contact
-				<div id="contact_bar" class="inactive"></div>
-			</button>
+				<a href="#about">
+					<i class="fas fa-star"></i> About
+					<div id="about_bar" class="active"></div>
+				</a>	
+				<a href="#events">
+					<i class="fas fa-calendar-alt"></i> Events
+					<div id="events_bar" class="inactive"></div>
+				</a>
+				<a href="#contribute">
+					<i class="fas fa-hand-holding-usd"></i> Contribute
+					<div id="contribute_bar" class="inactive"></div>
+				</a>
+				<a href="#apply">
+					<i class="fas fa-clipboard-list"></i> Apply
+					<div id="apply_bar" class="inactive"></div>
+				</a>
+				<a href="#contact">
+					<i class="fas fa-envelope"></i> Contact
+					<div id="contact_bar" class="inactive"></div>
+				</a>
 			</div>
 
 			<div id="main" style="display: none">
@@ -191,9 +193,6 @@
 		<script>
 			var state = "about";
 			check_hash();
-			function switch_tab(id) {
-				window.location.href = "#"+id;
-			}
 			window.onhashchange = function() {
 				check_hash();
 			}
